@@ -1,3 +1,3 @@
 # open
-Some personal works and personal resume \n
-Welcome to My first personal web site!
+Some personal works and personal resume 
+>> Welcome to My first personal web site!
