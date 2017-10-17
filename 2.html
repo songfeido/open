@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="js/jquery.js" charset="utf-8"></script>
+    <title></title>
+    <style media="screen">
+    .num { display:inline-block;position:relative;overflow:hidden;width:1em;font-size:28px;}
+    .num:before { content:attr(b);position:absolute;left:1.2em;top:-1.5em; }
+    .num:after { content:attr(a);position:absolute;left:1.2em;top:0px; }
+    .num.anim200:before { transition: top 0.2s; }
+    .num.anim200:after { transition: top 0.2s; }
+    .num.ba:before { top:0px; }
+    .num.ba:after { top:1.5em; }
+    .num.init:before { top:0px; }
+    .num.init:after { top:-1.5em; }
+    .num.ab:before { top:1.5em; }
+    .num.ab:after { top:0px; }
+    </style>
+  </head>
+<body>
+  <span id="timestamp"></span>
+  <script>
+    //render();
+    $('#timestamp').text('00'+$.now());
+    var arrnum = $.trim($('#timestamp').text()).split('');
+    $('#timestamp').empty();
+    for(var i=0,l=arrnum.length;i<l;i++){
+      $('#timestamp').append('<span class="num" a="'+arrnum[i]+'">'+arrnum[i]+'</span>');
+    }
+
+    //refresh();
+    setInterval(function(){
+    var now = $.now();
+    var arrNew = (now+'').split('');
+    var arrOld = $('#timestamp').text().split('');
+    while(arrOld.length-arrNew.length){
+      arrNew.unshift('0');
+    }
+    for(var i=0,l=arrNew.length;i<l;i++){
+      if(arrNew[i] == arrOld[i]){
+        continue;
+      }
+      scroll($('#timestamp').children(':nth-child('+(i+1)+')'),arrNew[i]);
+    }
+
+  },0);
+
+    var scroll = function(node,num){
+    if(!node.hasClass('ba')){
+      node.text(num).attr('b',num).removeClass('init ab').addClass('anim200');
+      setTimeout(function(){
+        node.addClass('ba');
+      },0);
+      setTimeout(function(){
+        node.removeClass('anim200').addClass('init');
+      },1000);
+    }else{
+      node.text(num).attr('a',num).removeClass('ba').addClass('anim200');
+      setTimeout(function(){
+        node.addClass('ab');
+      },0);
+      setTimeout(function(){
+        node.removeClass('anim200 init ab');
+      },1000);
+    }
+    };
+  </script>
+  </body>
+</html>
