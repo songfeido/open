@@ -1,23 +1,23 @@
 /*2017年8月7日09:38:16*/
 @font-face {
     font-family: 'zaozihei';
-     src: url('../font/zaozihei-webfont.eot');
+     src: url('../font/zaozihei/zaozihei-webfont.eot');
      /*src: url('../font/zaozihei-webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-    src: url('../font/zaozihei-webfont.eot?#iefix') format('eot'),
-         url('../font/zaozihei-webfont.ttf') format('truetype'),
-         url('../font/zaozihei-webfont.woff') format('woff'),
-         url('../font/zaozihei-webfont.svg#shanggo') format('svg');
+    src: url('../font/zaozihei/zaozihei-webfont.eot?#iefix') format('eot'),
+/*          url('../font/zaozihei/zaozihei-webfont.ttf') format('truetype'), */
+         url('../font/zaozihei/zaozihei-webfont.woff') format('woff'),
+         url('../font/zaozihei/zaozihei-webfont.svg#shanggo') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
   font-family: 'digitalnum';
-   src: url('../font/digitalnum.eot');
+   src: url('../font/digitalnum/digitalnum.eot');
    /*src: url('../font/zaozihei-webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  src: url('../font/digitalnum.eot?#iefix') format('eot'),
-       url('../font/digitalnum.ttf') format('truetype'),
-       url('../font/digitalnum.woff') format('woff'),
-       url('../font/digitalnum.svg#shanggo') format('svg');
+  src: url('../font/digitalnum/digitalnum.eot?#iefix') format('eot'),
+       url('../font/digitalnum/digitalnum.ttf') format('truetype'),
+       url('../font/digitalnum/digitalnum.woff') format('woff'),
+       url('../font/digitalnum/digitalnum.svg#shanggo') format('svg');
   font-weight: normal;
   font-style: normal;
 }
