@@ -7,7 +7,7 @@
 	<meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
    	<title>City bike共享单车管理平台</title>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
 	<!-- <link rel="stylesheet" type="text/css" href="css/common.css"/> -->
     <link rel="stylesheet" type="text/css" href="css/index.css"/>
   <script type="text/javascript" src="js/jquery.js"></script>
@@ -74,12 +74,12 @@
           <div class="col-md-3 col-md-offset-2 col-sm-4 col-xs-4 pull-left-sm slide-danche slide-danche-w" style="border:none;padding:0;">
             <h3 style="padding-left:0px;">共享单车</h3>
             <div class="slide-danche-c fl">
-                <h2 value="车辆数量1">单车数量监管图表</h2> -->
+                <h2 value="车辆数量1">单车数量监管图表</h2>
                 <h2 value="红色违停1">单车违停红色监管图表</h2>
                 <h2 value="交通事故1">单车投保监管图表</h2>
                 <h2 value="车辆安全1">单车安全监管图表</h2>
-                <!-- <h2 value="车辆调度1">单车调度指挥系统</h2> -->
-                <!-- <h2 value="车身广告1">车身广告监管图表</h2> -->
+                <h2 value="车辆调度1">单车调度指挥系统</h2>
+                <h2 value="车身广告1">车身广告监管图表</h2>
                 <h2 value="押金监管1">单车押金监管图表</h2>
                 <h2 value="充值监管1">单车充值监管图表</h2>
                 <h2 value="物价收费1">单车物价监管图表</h2>
@@ -119,6 +119,8 @@
     </div>
   </div>
   <!--/  顶部-->
+  <!-- map -->
+  <div id="gaodeMapContent" tabindex="0" class="row" style='height:500px;'></div>
   <!--左侧滑动列表栏（共享单车）-->
 	<div class="indexMap-list auto" id="indexMap-lists"  dir=RTL my-drag>
     <h2 value=" 车辆数量1"><img src="img/il3.png" alt="">单车数量监管图表</h2>
@@ -190,18 +192,6 @@
     </div>
     <img src="img/numberBGt.png" alt="" class="numberScroll-img">
   </div>
-  <!-- 地图风格切换 -->
-  <!-- <div class="indexMapTab transiton3">
-    <div class="indexMapTab-s indexMapTab-s1 on transiton3" title="全局监控">
-      <em>全局监控</em>
-    </div>
-    <div class="indexMapTab-s indexMapTab-s2 transiton3" title="数据监控">
-      <em style="display:none;">数据监控</em>
-    </div>
-    <div class="indexMapTab-s indexMapTab-s3 transiton3" title="热力图监控">
-      <em style="display:none;">热力图监控</em>
-    </div>
-  </div> -->
 
 
 </div>
@@ -209,8 +199,58 @@
 <script type="text/javascript" src="js/lucky.js"></script>
 
 <script type="text/javascript" src="js/numberAnimate2.js"></script>
-<script>
-
-</script>
+<!-- 引入的JS -->
+<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.0&key=9e2f915797bc44135a0fee07b3733851 "></script>
+    <script type="text/javascript">
+        var map = new AMap.Map('gaodeMapContent', {
+            pitch: 15,// 0-83
+            viewMode: '3D',
+            expandZoomRange: true,
+            zooms: [3, 18], // 支持的缩放级别范围
+            animateEnable: true,
+            resizeEnable: true,
+            zoom: 13,// 视角越大比例尺越小，离地面越近-.-   3 ~ 18
+            center: [117.203756, 31.827327]
+        });
+        map.setMapStyle('amap://styles/dark');
+        // document.getElementById()
+        console.log(0);
+        // private boolean isFirstTime=true;
+        // if(isFirstTime){
+        
+        // isFirstTime=false;
+        // } 
+        var pitchNum = 10,
+            zoomNum = 13,
+            rotationNum = 0;
+        var n = 1;
+        function rotateAnimate() {
+            clearInterval(c, 10000);
+            var c = setInterval(function () {
+                console.info(n++);
+                if (pitchNum >= 70) {
+                    pitchNum = 10
+                }
+                if (zoomNum == 17) {
+                    zoomNum = 10
+                }
+                if (rotationNum >= 360) {
+                    rotationNum = 0
+                }
+                pitchNum = pitchNum + 1;
+                zoomNum++;
+                rotationNum = rotationNum + 5;
+                animate( map.setPitch(pitchNum) , 1000);
+                animate( map.setZoom(zoomNum) , 1000);
+                animate( map.setRotation(rotationNum) , 1000);
+            }, 2000);
+        };
+        // map.on('load', rotateAnimate());
+        // map.on('load', map.zoomTo(15,1000))
+        // map.animateCamera(CameraUpdateFactory.newCameraPosition(new CameraPosition(Constants.ZHONGGUANCUN,18, 0, 30)),1000, callback);
+        // AMap.moveCamera(CameraUpdateFactory.zoomTo(16),1000)
+        // console.log(map.setPitch());
+        // private void Button_Click(object sender, RoutedEventArgs e) { amap.AnimateCamera(CameraUpdateFactory.NewLatLngZoom(new Latlng(30.679879, 104.064855), 17), 1); } private void Button_Click_1(object sender, RoutedEventArgs e) { amap.StopAnimation(); }
+    </script>
 </body>
 </html>
