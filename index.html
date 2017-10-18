@@ -1,218 +1,76 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="renderer" content="webkit" />
-    <meta name="keywords" content="">
-	<meta name="description" content="">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-   	<title>City bike共享单车管理平台</title>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css"/>
-	<!-- <link rel="stylesheet" type="text/css" href="css/common.css"/> -->
-    <link rel="stylesheet" type="text/css" href="css/index.css"/>
-  <script type="text/javascript" src="js/jquery.js"></script>
-  <script type="text/javascript" src="js/angular/angular.min.js"></script>
-  <script type="text/javascript" src="js/bootstrap/bootstrap.js"></script>
-	<link rel="shortcut icon" href="favicon.ico"/>
-  <style>
-  body::-webkit-scrollbar{
-    height: 0;
-    width: 0;
-  }
-</style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style type="text/css">
+        body,
+        html,
+        #container {
+            height: 100%;
+            margin: 0px;
+        }
+    </style>
+    <title>gaode</title>
 </head>
-<body scroll="no" ng-app="myListIndex" ng-controller="myListCtrl">
-<!--地图-->
-<div class="indexMap relative transiton5" style="overflow:hidden;">
-  <!-- 我是分割线 -->
-  <div class="indexFGX"></div>
-  <!--顶部-->
-  <div class="indexTop relative transiton5 row">
-    <div class="indexTop-c auto relative row">
-    	<div class="indexTop-l relative col-md-2 col-sm-3 col-sm-offset-1 col-xs-3 col-xs-offset-1 col-md-offset-1">
-        <img src="/img/logoo.png" alt="" class="zoom-in row">
-    	</div>
-        <!-- 导航栏大 -->
-      <div class="hidden-sm hidden-xs indexNav col-lg-8 col-md-9" id="indexNavs">
-        <i id="indexNavFirst"></i>
-        <ul class="indexNavUl indexNav1">
-          <li class="all-dpm">全部</li>
-          <li class="jiaoTong">交通局</li>
-          <li class="gongAn">公安局</li>
-          <li class="chengGuan">城管局</li>
-          <li class="jinRong">金融办</li>
-          <li class="wuJia">物价局</li>
-          <li class="zhiJian">质监局</li>
-          <li class="guiHua">规划局</li>
-          <li class="shuiWu">税务局</li>
-        </ul>
-      </div>
-      <div class="hidden-lg hidden-md col-lg-8 col-md-9 col-sm-8 col-xs-8">
-        <div class="row" style="height:90px;">
-          <img class="pull-right hide-nav" src="img/nav_btn.png" alt="">
-        </div>
-      </div>
-      <div class="clear"></div>
-      <div class="hidden-lg hidden-md row indexNav-b hidden">
-          <div class="indexNav col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-            <ul class="indexNavUl list-unstyled indexNav2">
-              <li class="all-dpm">全部</li>
-              <li class="jiaoTong">交通局</li>
-              <li class="gongAn">公安局</li>
-              <li class="chengGuan">城管局</li>
-              <li class="jinRong">金融办</li>
-              <li class="wuJia">物价局</li>
-              <li class="zhiJian">质监局</li>
-              <li class="guiHua">规划局</li>
-              <li class="shuiWu">税务局</li>
-            </ul>
-          </div>
-        </div>
-      <!-- 全部 -->
-      <div class="row slide-nav panel-body">
-        <div class="col-md-10 col-md-offset-1 panel-body">
-          <div class="col-md-3 col-md-offset-2 col-sm-4 col-xs-4 pull-left-sm slide-danche slide-danche-w" style="border:none;padding:0;">
-            <h3 style="padding-left:0px;">共享单车</h3>
-            <div class="slide-danche-c fl">
-                <h2 value="车辆数量1">单车数量监管图表</h2>
-                <h2 value="红色违停1">单车违停红色监管图表</h2>
-                <h2 value="交通事故1">单车投保监管图表</h2>
-                <h2 value="车辆安全1">单车安全监管图表</h2>
-                <h2 value="车辆调度1">单车调度指挥系统</h2>
-                <h2 value="车身广告1">车身广告监管图表</h2>
-                <h2 value="押金监管1">单车押金监管图表</h2>
-                <h2 value="充值监管1">单车充值监管图表</h2>
-                <h2 value="物价收费1">单车物价监管图表</h2>
-                <h2 value="车辆质量1">单车质量监管图表</h2>
-                <h2 value="电子围栏1">虚拟车桩与禁停区域</h2>
-                <h2 value="慢行交通1">慢行交通系统规划</h2>
-                <h2 value="税务监管1">单车税务监管图表</h2>
-                <h2 value="区域停放1">区域停放设施改造</h2>
-            </div>
-          </div>
-          <div class="col-md-3 col-lg-offset-1 col-sm-4 col-xs-4 slide-danche">
-            <h3>共享汽车</h3>
-            <div class="slide-danche-c">
-              <h2 value="车辆数量3">汽车数量监管图表</h2>
-              <h2 value="交通事故3">汽车投保监管图表</h2>
-              <h2 value="车辆安全3">汽车安全监管图表</h2>
-              <h2 value="车辆调度3">汽车调度监管图表</h2>
-              <h2 value="押金监管3">汽车押金监管图表</h2>
-              <h2 value="充值监管3">汽车充值监管图表</h2>
-              <h2 value="物价收费3">汽车物价监管图表</h2>
-              <h2 value="车辆质量3">汽车质量监管图表</h2>
-              <h2 value="税务监管3">汽车税务监管图表 </h2>
-            </div>
-          </div>
-          <div class="col-md-3 col-sm-4 col-xs-4 slide-danche">
-            <h3>顺风车</h3>
-            <div class="slide-danche-c">
-              <h2 value="车辆数量2">车辆数量监管图表</h2>
-              <h2 value="交通事故2">交通事故投保监管图表</h2>
-              <h2 value="投诉纠纷2">投诉及纠纷</h2>
-              <h2 value="物价收费2">车辆物价监管图表</h2>
-              <h2 value="税务监管2">车辆税务监管图表</h2>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--/  顶部-->
-  <!-- map -->
-  <div id="gaodeMapContent" tabindex="0" class="row" style='height:500px;'></div>
-  <!--左侧滑动列表栏（共享单车）-->
-	<div class="indexMap-list auto" id="indexMap-lists"  dir=RTL my-drag>
-    <h2 value=" 车辆数量1"><img src="img/il3.png" alt="">单车数量监管图表</h2>
-    <h2 value="红色违停1"><img src="img/il5.png" alt="">单车违停红色监管图表</h2>
-    <h2 value="交通事故1"><img src="img/il7.png" alt="">单车投保监管图表</h2>
-    <h2 value="车辆安全1"><img src="img/il9.png" alt="">单车安全监管图表</h2>
-    <h2 value="车辆调度1"><img src="img/il13.png" alt="">单车调度指挥系统</h2>
-    <h2 value="车身广告1"><img src="img/il10.png" alt="">车身广告监管图表</h2>
-    <h2 value="押金监管1"><img src="img/il4.png" alt="">单车押金监管图表</h2>
-    <h2 value="充值监管1"><img src="img/il4.png" alt="">单车充值监管图表</h2>
-		<h2 value="物价收费1"><img src="img/il1.png" alt="">单车物价监管图表</h2>
-		<h2 value="车辆质量1"><img src="img/il2.png" alt="">单车质量监管图表</h2>
-		<h2 value="电子围栏1"><img src="img/il8.png" alt="">虚拟车桩与禁停区域</h2>
-		<h2 value="慢行交通1"><img src="img/il11.png" alt="">慢行交通系统规划</h2>
-		<h2 value="税务监管1"><img src="img/il12.png" alt="">单车税务监管图表</h2>
-		<h2 value="区域停放1"><img src="img/il13.png" alt="">区域停放设施改造</h2>
-      <h2 value="车辆数量2"><img src="img/il3.png" alt="" style="display:none;">车辆数量监管图表</h2>
-  		<h2 value="交通事故2"><img src="img/il7.png" alt="" style="display:none;">交通事故投保监管图表</h2>
-      <h2 value="投诉纠纷2"><img src="img/il5.png" alt="" style="display:none;">投诉及纠纷</h2>
-  		<h2 value="物价收费2"><img src="img/il1.png" alt="" style="display:none;">车辆物价监管图表</h2>
-  		<h2 value="税务监管2"><img src="img/il13.png" alt="" style="display:none;">车辆税务监管图表</h2>
-        <h2 value="车辆数量3"><img src="img/il3.png" alt="" style="display:none;">汽车数量监管图表</h2>
-        <h2 value="交通事故3"><img src="img/il7.png" alt="" style="display:none;">汽车投保监管图表</h2>
-        <h2 value="车辆安全3"><img src="img/il9.png" alt="" style="display:none;">汽车安全监管图表</h2>
-        <h2 value="车辆调度3"><img src="img/il8.png" alt="" style="display:none;">汽车调度监管图表</h2>
-        <h2 value="押金监管3"><img src="img/il4.png" alt="" style="display:none;">汽车押金监管图表</h2>
-        <h2 value="充值监管3"><img src="img/il4.png" alt="" style="display:none;">汽车充值监管图表</h2>
-    		<h2 value="物价收费3"><img src="img/il1.png" alt="" style="display:none;">汽车物价监管图表</h2>
-    		<h2 value="车辆质量3"><img src="img/il2.png" alt="" style="display:none;">汽车质量监管图表</h2>
-    		<h2 value="税务监管3"><img src="img/il13.png" alt="" style="display:none;">汽车税务监管图表 </h2>
-	</div>
 
-  <!-- 上左 -->
-  <div class="bgglass indexTL untext" id="indexTLid">
-    <img src="img/glass.png" alt="">
-  </div>
-  <!-- 上又 -->
-  <div class="bgglass indexTR untext" id="indexTRid">
-    <img src="img/glass.png" alt="">
-    <!-- <div style="background:#ff0000;color:white;" class="glaSS">77777 -->
-    </div>
-  </div>
-  <!-- 下左 -->
-  <div class="bgglass indexBL untext" id="indexBLid">
-    <img src="img/glass.png" alt="">
-  </div>
-  <!-- 下右 -->
-  <div class="bgglass indexBR untext" id="indexBRid">
-    <img src="img/glass.png" alt="">
-  </div>
-
-  <!-- 中央滚动数字显示 -->
-  <div id="numberScroll">
-    <h3>用户人数</h3>
-    <!-- 数字跳动 -->
-    <!-- <div id="numberS1"><span class="t_num"></span></div> -->
-    <div class="numberRun1 Inumber" id="numberS1"></div>
-    <div class="numberScroll-s relative">
-      <!-- 左侧 -->
-      <div class="numberScroll-s1 fl">
-        <h4>今日用户活跃度</h4>
-        <div class="numberRun2 Inumber" id="numberS2"></div>
-      </div>
-      <!-- 右侧 -->
-      <div class="numberScroll-s2 fr">
-        <h4>今日车辆活跃度</h4>
-        <div class="numberRun3 Inumber" id="numberS3"></div>
-      </div>
-    </div>
-    <img src="img/numberBGt.png" alt="" class="numberScroll-img">
-  </div>
-
-
-</div>
-
-<script type="text/javascript" src="js/lucky.js"></script>
-
-<script type="text/javascript" src="js/numberAnimate2.js"></script>
-<!-- 引入的JS -->
-<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.0&key=9e2f915797bc44135a0fee07b3733851&s=1"></script>
+<body>
+    <div id="container" tabindex="0" class="row"></div>
+    <!-- 引入的JS -->
+    <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.0&key=9e2f915797bc44135a0fee07b3733851 "></script>
     <script type="text/javascript">
-        var map = new AMap.Map('gaodeMapContent', {
+        var map = new AMap.Map('container', {
             pitch: 15,// 0-83
             viewMode: '3D',
             expandZoomRange: true,
             zooms: [3, 18], // 支持的缩放级别范围
             animateEnable: true,
             resizeEnable: true,
-            zoom: 13,// 视角越大比例尺越小，离地面越近-.-   3 ~ 18
+            zoom: 10,// 视角越大比例尺越小，离地面越近-.-   3 ~ 18
             center: [117.203756, 31.827327]
         });
         map.setMapStyle('amap://styles/dark');
+        // document.getElementById()
+        console.log(0);
+        // private boolean isFirstTime=true;
+        // if(isFirstTime){
+        
+        // isFirstTime=false;
+        // } 
+        var pitchNum = 10,
+            zoomNum = 10,
+            rotationNum = 0;
+        var n = 1;
+        function rotateAnimate() {
+            clearInterval(c, 10000);
+            var c = setInterval(function () {
+                console.info(n++);
+                if (pitchNum >= 70) {
+                    pitchNum = 10
+                }
+                if (zoomNum == 17) {
+                    zoomNum = 10
+                }
+                if (rotationNum >= 360) {
+                    rotationNum = 0
+                }
+                pitchNum = pitchNum + 1;
+                zoomNum++;
+                rotationNum = rotationNum + 5;
+                animate( map.setPitch(pitchNum) , 1000);
+                animate( map.setZoom(zoomNum) , 1000);
+                animate( map.setRotation(rotationNum) , 1000);
+            }, 2000);
+        };
+        // map.on('load', rotateAnimate());
+        // map.on('load', map.zoomTo(15,1000))
+        // map.animateCamera(CameraUpdateFactory.newCameraPosition(new CameraPosition(Constants.ZHONGGUANCUN,18, 0, 30)),1000, callback);
+        // AMap.moveCamera(CameraUpdateFactory.zoomTo(16),1000)
+        // console.log(map.setPitch());
+        // private void Button_Click(object sender, RoutedEventArgs e) { amap.AnimateCamera(CameraUpdateFactory.NewLatLngZoom(new Latlng(30.679879, 104.064855), 17), 1); } private void Button_Click_1(object sender, RoutedEventArgs e) { amap.StopAnimation(); }
     </script>
 </body>
+
 </html>
