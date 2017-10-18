@@ -213,44 +213,6 @@
             center: [117.203756, 31.827327]
         });
         map.setMapStyle('amap://styles/dark');
-        // document.getElementById()
-        console.log(0);
-        // private boolean isFirstTime=true;
-        // if(isFirstTime){
-        
-        // isFirstTime=false;
-        // } 
-        var pitchNum = 10,
-            zoomNum = 13,
-            rotationNum = 0;
-        var n = 1;
-        function rotateAnimate() {
-            clearInterval(c, 10000);
-            var c = setInterval(function () {
-                console.info(n++);
-                if (pitchNum >= 70) {
-                    pitchNum = 10
-                }
-                if (zoomNum == 17) {
-                    zoomNum = 10
-                }
-                if (rotationNum >= 360) {
-                    rotationNum = 0
-                }
-                pitchNum = pitchNum + 1;
-                zoomNum++;
-                rotationNum = rotationNum + 5;
-                animate( map.setPitch(pitchNum) , 1000);
-                animate( map.setZoom(zoomNum) , 1000);
-                animate( map.setRotation(rotationNum) , 1000);
-            }, 2000);
-        };
-        // map.on('load', rotateAnimate());
-        // map.on('load', map.zoomTo(15,1000))
-        // map.animateCamera(CameraUpdateFactory.newCameraPosition(new CameraPosition(Constants.ZHONGGUANCUN,18, 0, 30)),1000, callback);
-        // AMap.moveCamera(CameraUpdateFactory.zoomTo(16),1000)
-        // console.log(map.setPitch());
-        // private void Button_Click(object sender, RoutedEventArgs e) { amap.AnimateCamera(CameraUpdateFactory.NewLatLngZoom(new Latlng(30.679879, 104.064855), 17), 1); } private void Button_Click_1(object sender, RoutedEventArgs e) { amap.StopAnimation(); }
     </script>
 </body>
 </html>
