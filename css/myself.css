@@ -69,13 +69,13 @@ input[type="text"], input[type="password"], button {
 }
 
 a:link, a:active, a:visited {
-  color: #666;
+  color: color:#8f8f8f;;
   text-decoration: none;
 }
 
 a:hover {
-  color: #0070b0!important;
-  text-decoration: none;
+  color: rgb(8, 168, 140)!important;
+  text-decoration: underline;
 }
 
 a:focus {
@@ -105,6 +105,18 @@ img {
 
 .disb {
   display: block;
+}
+
+.pointer{
+  cursor: pointer;
+}
+
+.nopadd{
+  padding:0!important;
+}
+
+.nomarg{
+  margin:0!important;
 }
 
 .untext {
@@ -159,6 +171,11 @@ img {
 
 
 /*首页开始*/
+.myself-box{
+  color:#8f8f8f;
+  font-family: '微软雅黑'
+}
+
 .top-bg-box{
   height:500px;
 }
@@ -172,7 +189,6 @@ img {
   position: absolute;
   top:0;
   left:0;
-  width:100%;
   height:100%;
   z-index:2;
   background:rgba(255,255,255,.1)
@@ -202,3 +218,42 @@ img {
   border:2px solid rgb(8, 168, 140);
 }
 
+.circle-box{
+  width:182px;
+  height:182px;
+  border-radius: 182px;
+  border:2px solid rgb(8, 168, 140);
+}
+
+.content-basic-box{
+  margin-top:150px;
+}
+
+.content-left-box{
+  border-right:1px solid rgb(181,181,181);
+}
+
+.circle-small{
+  margin-top:5px;
+  padding-top:55px;
+  width:166px;
+  height:166px;
+  border-radius: 166px;
+  background:rgb(8, 168, 140);
+}
+
+.content-right-li{
+  height:40px;
+  line-height:40px;
+  font-size:16px;
+  margin-top:10px;
+}
+
+.content-right-li img{
+  /* width:100%; */
+  height:30px;
+}
+
+.mail-a{
+  color:#8f8f8f;
+}
