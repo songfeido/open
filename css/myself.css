@@ -112,11 +112,15 @@ img {
 }
 
 .nopadd{
-  padding:0!important;
+  padding:0;
+}
+
+.padd-l{
+  padding-left:15px;
 }
 
 .nomarg{
-  margin:0!important;
+  margin:0;
 }
 
 .untext {
@@ -229,9 +233,7 @@ img {
   margin-top:150px;
 }
 
-.content-left-box{
-  border-right:1px solid rgb(181,181,181);
-}
+.content-left-box{}
 
 .circle-small{
   margin-top:5px;
@@ -240,6 +242,10 @@ img {
   height:166px;
   border-radius: 166px;
   background:rgb(8, 168, 140);
+}
+
+.content-right-box{
+  border-left:1px solid rgb(181,181,181);
 }
 
 .content-right-li{
